@@ -1,0 +1,12 @@
+- name: clone the pSSID-GUI repository
+  git:
+    repo: https://github.com/UMNET-perfSONAR/pSSID-GUI
+    dest: '{{ pssid_gui_path }}'
+    version: '{{ pssid_gui_branch }}'
+- name: run the pSSID-GUI build/run script (might take a long time, on the order of 2 minutes)
+  ansible.builtin.command:
+    chdir: '{{ pssid_gui_path }}'
+    cmd: docker-compose up --force-recreate -d
+  environment:
+    PORT: '{{ pssid_gui_port }}'
+    INV_DIR: '{{ pssid_gui_inventories_path }}'

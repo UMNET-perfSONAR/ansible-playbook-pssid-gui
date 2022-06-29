@@ -1,0 +1,3 @@
+dependencies:
+  - role: geerlingguy.docker
+    version: 4.2.4

@@ -1,2 +1,1 @@
-- src: https://github.com/UMNET-perfSONAR/ansible-role-pssid-gui
 - name: geerlingguy.ansible

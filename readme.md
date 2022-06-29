@@ -8,6 +8,7 @@ Run the following to get dependencies:
 
 ```
 ansible-galaxy install -r requirements.yml
+ansible-galaxy install -r roles/ansible-role-pssid-gui/requirements.yml
 ```
 
 ## Usage
