@@ -6,7 +6,7 @@
 - name: run the pSSID-GUI build/run script (might take a long time, on the order of 2 minutes)
   ansible.builtin.command:
     chdir: '{{ pssid_gui_path }}'
-    cmd: docker-compose up --force-recreate -d
+    cmd: docker-compose up --build -d
   environment:
     PORT: '{{ pssid_gui_port }}'
     INV_DIR: '{{ pssid_gui_inventories_path }}'
