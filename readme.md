@@ -20,7 +20,7 @@ Within `playbook.yml`, `pssid_gui_*` can be changed to modify the installation o
 ### Running
 
 ```
-ansible-playbook playbook.yml --become --become-user root --ask-become-pass --become-method su -i 1.1.1.1,
+ansible-playbook playbook.yml -i 1.1.1.1,
 ```
 
 Change `1.1.1.1` to the IP address of the intended target, but take note of the trailing comma.
