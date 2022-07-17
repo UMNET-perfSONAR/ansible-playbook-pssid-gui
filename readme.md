@@ -24,3 +24,7 @@ ansible-playbook playbook.yml -i 1.1.1.1,
 ```
 
 Change `1.1.1.1` to the IP address of the intended target, but take note of the trailing comma.
+
+If everything was successful, opening that IP address at the port specified in `playbook.yml` should return the pSSID GUI.
+
+This playbook installed [`ansible-playbook-pssid-daemon`](https://github.com/UMNET-perfSONAR/ansible-playbook-pssid-daemon) onto the server (into `/opt` by default). Read through that repository's readme to learn how to turn inventories configured with the GUI into pSSID config files.
