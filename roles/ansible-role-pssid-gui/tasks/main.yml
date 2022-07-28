@@ -32,4 +32,4 @@
 - name: run the pSSID-GUI build/run script (might take a long time, on the order of 2 minutes)
   ansible.builtin.command:
     chdir: '{{ pssid_gui_path }}'
-    cmd: docker-compose --env-file /etc/pssid-gui/config up -d
+    cmd: docker-compose --env-file /etc/pssid-gui/config up --build -d
