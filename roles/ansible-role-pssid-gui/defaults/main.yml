@@ -4,8 +4,11 @@ pssid_gui_path: /usr/local/pssid-gui
 # directory that should be mounted to the Docker container for inventories to be stored in
 pssid_gui_inventories_path: /usr/local/pssid-gui/inventories
 
+# directory that should be mounted as the skeleton used when new inventories are created
+pssid_gui_default_inventory_path: /usr/lib/pssid-gui/default-inventory
+
 # port on which pssid-gui should listen
 pssid_gui_port: '8080'
 
 # the pssid-gui branch to install from
-pssid_gui_branch: fixes
+pssid_gui_branch: main

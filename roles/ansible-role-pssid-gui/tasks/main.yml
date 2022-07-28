@@ -1,12 +1,35 @@
 - name: clone the pSSID-GUI repository
-  git:
+  ansible.builtin.git:
     repo: https://github.com/UMNET-perfSONAR/pSSID-GUI
     dest: '{{ pssid_gui_path }}'
     version: '{{ pssid_gui_branch }}'
+    force: true
+- name: create config directory
+  ansible.builtin.file:
+    path: /etc/pssid-gui
+    owner: root
+    group: root
+    state: directory
+- name: generate the initial config file
+  ansible.builtin.template:
+    src: ./config.j2
+    dest: /etc/pssid-gui/config
+- name: delete any preexisting default-inventory directory
+  ansible.builtin.file:
+    state: absent
+    path: '{{ pssid_gui_default_inventory_path }}'
+- name: create default-inventory directory
+  ansible.builtin.file:
+    path: '{{ pssid_gui_default_inventory_path }}'
+    owner: root
+    group: root
+    state: directory
+- name: create the default-inventory directory
+  ansible.builtin.copy:
+    remote_src: true
+    src: '{{ pssid_gui_path }}/default-inventory/'
+    dest: '{{ pssid_gui_default_inventory_path }}'
 - name: run the pSSID-GUI build/run script (might take a long time, on the order of 2 minutes)
   ansible.builtin.command:
     chdir: '{{ pssid_gui_path }}'
-    cmd: docker-compose up --build -d
-  environment:
-    PORT: '{{ pssid_gui_port }}'
-    INV_DIR: '{{ pssid_gui_inventories_path }}'
+    cmd: docker-compose --env-file /etc/pssid-gui/config up -d
