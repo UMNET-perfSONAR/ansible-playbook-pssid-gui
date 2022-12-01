@@ -29,10 +29,12 @@ Within `playbook.yml`, `pssid_gui_*` can be changed to modify the installation o
 ### Running
 
 ```
-ansible-playbook playbook.yml -i 1.1.1.1,
+ansible-playbook \
+  playbook.yml \
+  -i IP_ADDR, 
 ```
 
-Change `1.1.1.1` to the IP address of the intended target, but take note of the trailing comma.
+Change `IP_ADDR` to the IP address of the intended target, but take note of the trailing comma.
 
 If everything was successful, opening that IP address at the port specified in `playbook.yml` should return the pSSID GUI.
 
