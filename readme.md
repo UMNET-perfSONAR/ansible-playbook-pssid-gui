@@ -2,6 +2,15 @@
 
 Ansible playbook for deploying [pSSID-GUI](https://github.com/UMNET-perfSONAR/pSSID-GUI) to a server. It installs Docker, pSSID-GUI, Ansible, and [ansible-playbook-pssid-daemon](https://github.com/UMNET-perfSONAR/ansible-playbook-pssid-daemon).
 
+## Clone this playbook
+
+```
+git clone https://github.com/UMNET-perfSONAR/ansible-playbook-pssid-gui.git
+cd ansible-playbook-pssid-gui
+```
+
+
+
 ## Dependencies
 
 Run the following to get dependencies:
